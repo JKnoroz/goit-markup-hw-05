@@ -4,6 +4,7 @@
   --accent-color: #2196f3;
   --white-color: #ffffff;
   --logoblack-color: #000000;
+  --transit: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -120,16 +121,22 @@ header .link {
   color: var(--secondary-text-color);
 }
 
-.menu .link.current,
+/* Кажется переход не работает */
+
+.menu .link,
+.contacts li {
+  transition: color 250ms var(--transit);
+}
+
+.link.current {
+  color: var(--accent-color);
+}
+
 .menu .link:hover,
 .menu .link:focus,
 .contacts li :hover,
 .contacts li :focus {
   color: var(--accent-color);
-}
-.contacts-icon:hover,
-.contacts-icon:focus {
-  fill: var(--accent-color);
 }
 
 .menu {
@@ -149,7 +156,7 @@ header .link {
 
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -1px;
 
   display: block;
   width: 100%;
@@ -345,6 +352,8 @@ h1 {
   height: 44px;
   border-radius: 50%;
   color: #afb1b8;
+
+  transition: background-color 250ms var(--transit), color 250ms var(--transit);
 }
 
 .social-link:hover,
@@ -368,6 +377,8 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  transition: border-color 250ms var(--transit), color 250ms var(--transit);
 }
 
 .clients li:not(:last-child) {
@@ -410,6 +421,10 @@ h1 {
   display: inline-block;
   border: 2px solid transparent;
   cursor: pointer;
+
+  transition-property: background-color, color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: var(--transit);
 }
 
 .projects-filter button:focus,
@@ -590,6 +605,8 @@ address p {
   align-items: center;
   justify-content: center;
   color: var(--white-color);
+
+  transition: background-color 250ms var(--transit);
 }
 
 .footer-socials a:hover,
@@ -620,6 +637,7 @@ address p {
 
 .backdrop.is-hidden {
   opacity: 0;
+  pointer-events: none;
 }
 
 .modal {
@@ -628,8 +646,8 @@ address p {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 528px;
-  height: 581px;
+  min-width: 528px;
+  min-height: 581px;
   background-color: var(--white-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
