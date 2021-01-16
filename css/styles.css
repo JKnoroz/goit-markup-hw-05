@@ -121,8 +121,6 @@ header .link {
   color: var(--secondary-text-color);
 }
 
-/* Кажется переход не работает */
-
 .menu .link,
 .contacts .link {
   transition: color 250ms var(--transit);
@@ -461,14 +459,10 @@ h1 {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-/* какая прозрачность у текста 1 или 0.9 ? */
-
-/* .projects a:hover .about {
-  opacity: 1;
-} */
-
 .projects a:hover .about,
-.projects a:hover .project-photo::before {
+.projects a:hover .project-photo::before,
+.projects a:focus .about,
+.projects a:focus .project-photo::before {
   transform: translateY(-100%);
 }
 
