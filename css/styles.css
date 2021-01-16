@@ -124,7 +124,7 @@ header .link {
 /* Кажется переход не работает */
 
 .menu .link,
-.contacts li {
+.contacts .link {
   transition: color 250ms var(--transit);
 }
 
@@ -463,12 +463,13 @@ h1 {
 
 /* какая прозрачность у текста 1 или 0.9 ? */
 
-.projects a:hover .about {
+/* .projects a:hover .about {
   opacity: 1;
-}
+} */
 
+.projects a:hover .about,
 .projects a:hover .project-photo::before {
-  opacity: 0.9;
+  transform: translateY(-100%);
 }
 
 .projects-description {
@@ -478,27 +479,30 @@ h1 {
 
 .project-photo {
   position: relative;
+  overflow: hidden;
 }
 
 .about {
   position: absolute;
-  top: 0;
-  /* transform: translate(-50%, -50%); */
-  left: 0;
+  bottom: -100%;
+  /* top: 0;
+  left: 0; */
   width: 100%;
   height: 100%;
-  /* background: rgba(33, 150, 243, 0.9); */
-  opacity: 0;
+
+  transition: transform 250ms var(--transit);
 }
 
 .project-photo::before {
   position: absolute;
+  bottom: -100%;
 
   content: '';
   width: 100%;
   height: 100%;
-  background-color: rgba(33, 150, 243);
-  opacity: 0;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  transition: transform 250ms var(--transit);
 }
 
 .about p {
